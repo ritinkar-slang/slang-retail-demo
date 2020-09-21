@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import SlangRegistrationAssistant from "slang-retail-assistant";
+import SlangRetailAssistant from "slang-retail-assistant";
 import GroceryTable from "./groceryTable";
 
 function Main() {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    SlangRegistrationAssistant.init({
-      buddyId: "d500dea6ff22404783f3e8d21b175a26", // rgrocery.v2 // slang assistants
-      apiKey: "96db4ed890494bbbabe6b4623c1c103d",
+    SlangRetailAssistant.init({
+      buddyId: "<buddy-id>", // rgrocery.v2 // slang assistants
+      apiKey: "<api-key>",
       isSpa: true,
     });
   }, []);
   useEffect(() => {
-    SlangRegistrationAssistant.setAction({
+    SlangRetailAssistant.setAction({
       onSearch: (retailItem) => {
         if (retailItem) {
           setItems([...items, retailItem]);
