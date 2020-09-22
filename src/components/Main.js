@@ -6,8 +6,8 @@ function Main() {
   const [items, setItems] = useState([]);
   useEffect(() => {
     SlangRetailAssistant.init({
-      buddyId: "<buddy-id>", // rgrocery.v2 // slang assistants
-      apiKey: "<api-key>",
+      assistantID: "<assistant_id>", // rgrocery.v2 // slang assistants
+      apiKey: "<api_key>",
       isSpa: true,
     });
   }, []);
@@ -16,9 +16,9 @@ function Main() {
       onSearch: (retailItem) => {
         if (retailItem) {
           setItems([...items, retailItem]);
-          return { status: "SEARCH_SUCCESS" };
+          return { status: SlangRetailAssistant.STATUS.SEARCH_SUCCESS };
         } else {
-          return { status: "ADD_TO_CART_SUCCESS" };
+          return { status: SlangRetailAssistant.STATUS.ADD_TO_CART_SUCCESS };
         }
       },
     });
